@@ -96,7 +96,7 @@
     
     <!-- SLIDESHOW -->
 <div class="slideshow">
-  <img id="slide" src="ring1.jpg" "ring2.jpg" style="width:100%; height:100%; object-fit: cover;">
+  <img id="slide" src="ring1.jpg" style="width:100%; height:100%; object-fit:cover;">
 </div>
     <!-- LIVE RATE -->
     <div class="rate-box">
@@ -112,25 +112,15 @@
     <button>View More Designs</button>
   </div>
 <script>
-  window.onload = function() {
-    let images = ["ring1.jpg", "ring2.jpg"];
-    let i = 0;
-    
-    setInterval(function() {
-      i = (i + 1) % images.length;
-      document.getElementById("slide").src = images[i];
-    }, 2000);
-  };
-<script>
-window.addEventListener("load", function () {
-  let images = ["ring1.jpg", "ring2.jpg", "ring3.jpg"];
-  let i = 0;
+const images = ["ring1.jpg", "ring2.jpg", "ring3.jpg"];
+let i = 0;
 
-  setInterval(function () {
-    i = (i + 1) % images.length;
-    document.getElementById("slide").src = images[i];
-  }, 2000);
-});
+function changeImage() {
+  i = (i + 1) % images.length;
+  document.getElementById("slide").src = images[i];
+}
+
+setInterval(changeImage, 2000);
 </script>
 </body>
 </html>
