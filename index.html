@@ -88,7 +88,8 @@
     <div class="menu">☰</div>
     <div class="logo">
   <img src="IMG_2387.png" height="40"></div> 
-  <div class="cart">🛒</div>
+<div class="cart">🛒</div>
+  </div>
   
 
   <!-- MAIN -->
@@ -121,6 +122,16 @@
       document.getElementById("slide").src = images[i];
     }, 2000);
   };
+<script>
+window.addEventListener("load", function () {
+  let images = ["ring1.jpg", "ring2.jpg", "ring3.jpg"];
+  let i = 0;
+
+  setInterval(function () {
+    i = (i + 1) % images.length;
+    document.getElementById("slide").src = images[i];
+  }, 2000);
+});
 </script>
 </body>
 </html>
