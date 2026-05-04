@@ -1,257 +1,227 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ</title>
 
-<body>
+<style>
+/* LOGO */
+.logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
   
-</body>
+  /* very soft glow */
+  filter: drop-shadow(0 0 1px rgba(255, 215, 0, 0.4));
+  
+  /* slow breathing effect */
+  animation: softGlow 4s ease-in-out infinite;
+}
 
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>DJ </title>
-  <style>
-    .rate {
+/* subtle animation */
+@keyframes softGlow {
+  0% {
+    filter: drop-shadow(0 0 1px rgba(255, 215, 0, 0.3));
+  }
+  
+  50% {
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
+  }
+  
+  100% {
+    filter: drop-shadow(0 0 1px rgba(255, 215, 0, 0.3));
+  }
+}
+/* BODY */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background:url("background.jpg"); no-repeat centre;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  
+  background: url("head.PNG") no-repeat center;
+  background-size: cover;
+  
+  position: relative;
+}
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.100);
+  z-index: 0;
+}
+.header>* {
+  position: relative;
+  z-index: 1;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.menu, .cart {
+  font-size: 22px;
+  color: white;
+}
+
+/* MAIN */
+.main {
+  text-align: center;
+  padding: 20px;
+}
+
+/* GOLD BORDER */
+.slideshow-border {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2px;
+  border-radius: 16px;
+  background: linear-gradient(270deg, red,pink, antiquewhite,#d4af37, #ffd700, #b8962e, #d4af37);
+  background-size: 600% 600%;
+  animation: goldMove 8s linear infinite;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(212,175,55,0.4);
+}
+
+/* SLIDESHOW BOX */
+.slideshow {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: black;
+}
+
+/* SLIDER */
+.slider-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+/* IMAGES - PERFECT FIT */
+.slider-track img {
+  height: 280px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 10px;
+  background: black;
+}
+
+/* ANIMATIONS */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes goldMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* RATE BOX */
+.rate-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 15px;
+  animation: blinkRate 3s infinite;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* SHIMMER TEXT */
+.rate {
   font-size: 28px;
   font-weight: bold;
-
-  background: linear-gradient(
-    90deg,
-    #b8962e,
-    #ffd700,
-    #fff5cc,
-    #ffd700,
-    #b8962e
-  );
-
+  background: linear-gradient(90deg, #b8962e, #ffd700, #fff5cc, #ffd700, #b8962e);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-
-  animation: shine 5s linear infinite;
-}
-    @keyframes shine {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-/* Base style */
-.rate-box {
-box-shadow: 0 0 10px rgba(90, 15, 15, 0.5);
-  flex: 1;
-  padding: 15px;
-  text-align: center;
-  border-radius: 15px;
-  animation: blinkRate 3s infinite;
+  animation: shine 3s linear infinite;
 }
 
-/* Text border effect */
-.rate-box h3,
-.rate-box p {
+/* TEXT OUTLINE */
+.rate-box h3, .rate-box p {
   -webkit-text-stroke: 0.3px black;
 }
 
-/* Animation */
+/* ANIMATIONS */
 @keyframes blinkRate {
-  0% {
-    background-color: #5a0f0f;
-    color: white;
-  }
-  
-  50% {
-    background-color: white;
-    color: #5a0f0f;
-  }
-  
-  100% {
-    background-color: #5a0f0f;
-    color: white;
-  }
-}
-.slideshow {
-  flex: 3;
-  overflow: hidden;
+  0% { background-color: #5a0f0f; color: white; }
+  50% { background-color: white; color: #5a0f0f; }
+  100% { background-color: #5a0f0f; color: white; }
 }
 
-.slider-track {
-  display: flex;
-  width: max-content;
-  animation: scroll 20s linear infinite;
+@keyframes shine {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
 }
 
-.slider-track img {
-  width: 300px;
-  height: auto;
-  object-fit: cover;
+/* BUTTON */
+.more {
+  margin-top: 20px;
 }
 
-/* Continuous scrolling */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-    body {
-      margin: 0;
-      font-family: Arial;
-      background:antiquewhite;
-      color: white;
-    }
-
-    /* HEADER */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-      background: #111;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      color: gold;
-    }
-
-    .menu, .cart {
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    /* MAIN SECTION */
-    .main {
-      display: block;
-      padding: 20px;
-      gap: 20px;
-    }
-
-  .slideshow {
-  width="100";
-  height: 250px;
-  background: #222;
-  border:10px gold;
-border-radius: 20px;
-border animation:move;
-  overflow: hidden;
-}
-
-    .rate-box {
-transition: all 0.5s ease;
-      flex: 1;
-      background: #1a1a1a;
-      padding: 10px;
-      text-align:centre;
-      margin-top: 20px;
-      border: 1px solid gold;
-    }
-
-    /* BUTTON */
-    .more {
-      text-align: center;
-      margin: 10px;
-    }
-
-    .more button {
-      padding: 10px 20px;
-      background: pink;
-      border: black;
-      cursor: pointer;
-    }
-/* Wrapper for animated border */
-.slideshow-border {
-  position: relative;
-  display: inline-block;
-}
-
-/* Golden animated border */
-.slideshow-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px; /* thickness of border */
+.more button {
+  padding: 10px 20px;
+  background: pink;
+  border: none;
   border-radius: 10px;
-
-  background: linear-gradient(90deg, gold, orange, gold);
-  background-size: 300% 300%;
-
-  animation: borderMove 4s linear infinite;
-
-  -webkit-mask: 
-    linear-gradient(#000 0 0) content-box, 
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  cursor: pointer;
 }
 
-/* Animation */
-@keyframes borderMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="menu">☰</div>
-    <div class="logo">
-<div class="logo">
-  <img src="logo1.jpg" height="80">
+<div class="header">
+  <div class="menu">☰</div>
+  <div class="logo">
+  <img src="logo1.png.PNG" class="logo-img">
 </div>
+  <div class="cart">🛒</div>
+</div>
+
+<div class="main">
+
+  <div class="slideshow-border">
+    <div class="slideshow">
+      <div class="slider-track">
+        <img src="ring1.jpg">
+        <img src="ring2.jpg">
+        <img src="ring3.jpg">
+        <img src="ring1.jpg">
+        <img src="ring2.jpg">
+        <img src="ring3.jpg">
+      </div>
     </div>
-    <div class="cart">🛒</div>
   </div>
 
-  <!-- MAIN -->
-  <div class="main">
-    
-    <!-- SLIDESHOW -->
-<div class="slideshow">
-  <div class="slider-track">
-    <img src="ring1.jpg">
-    <img src="ring2.jpg">
-    <img src="ring3.jpg">
-    
-    <!-- duplicate for smooth loop -->
-    <img src="ring1.jpg">
-    <img src="ring2.jpg">
-    <img src="ring3.jpg">
+  <div class="rate-box">
+    <h3>Gold Rate Per Gram</h3>
+    <p class="rate">22KT: ₹13,892/-</p>
+    <p class="rate">18KT: ₹12,382/-</p>
   </div>
-</div>
-<div class="rate-box">
-  <h3>Gold Rate Per Gram</h3>
-<p class="rate">22KT: ₹13,892/-</p>
-<p class="rate">18KT: ₹12,382/-</p>
-</div>
-  <!-- MORE BUTTON -->
+
   <div class="more">
     <button>View More Designs</button>
   </div>
-<script>
-  window.onload = function() {
-    let images = ["ring1.jpg", "ring2.jpg"];
-    let i = 0;
-    
-    setInterval(function() {
-      i = (i + 1) % images.length;
-      document.getElementById("slide").src = images[i];
-    }, 2000);
-  };
-</script>
+
+</div>
+
 </body>
 </html>
